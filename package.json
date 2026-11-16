@@ -1,0 +1,11 @@
+{
+  "name": "tab-timeout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chromium extension that auto-closes idle tabs and archives them to bookmarks.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "icons": "python3 tools/make_icons.py"
+  }
+}

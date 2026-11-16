@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tab Timeout — Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="card">
+      <header>
+        <img src="../icons/icon48.png" alt="" width="36" height="36" />
+        <div>
+          <h1>Tab Timeout</h1>
+          <p class="sub">Close idle tabs and archive them to bookmarks.</p>
+        </div>
+      </header>
+
+      <label class="row switch">
+        <span>
+          <strong>Enabled</strong>
+          <small>Turn the whole extension on or off.</small>
+        </span>
+        <input type="checkbox" id="enabled" />
+      </label>
+
+      <hr />
+
+      <label class="row">
+        <span>
+          <strong>Idle before prompting</strong>
+          <small>Minutes a tab can go unvisited before you're asked.</small>
+        </span>
+        <span class="field"><input type="number" id="idleMinutes" min="1" max="1440" /> min</span>
+      </label>
+
+      <label class="row">
+        <span>
+          <strong>Grace period</strong>
+          <small>Time to respond to the prompt before the tab auto-closes.</small>
+        </span>
+        <span class="field"><input type="number" id="graceSeconds" min="5" max="3600" /> sec</span>
+      </label>
+
+      <label class="row">
+        <span>
+          <strong>Bookmark retention</strong>
+          <small>Days a "Recently Closed" bookmark is kept before cleanup.</small>
+        </span>
+        <span class="field"><input type="number" id="retentionDays" min="1" max="365" /> days</span>
+      </label>
+
+      <hr />
+
+      <h2>Never auto-close…</h2>
+
+      <label class="row switch">
+        <span><strong>Pinned tabs</strong></span>
+        <input type="checkbox" id="exemptPinned" />
+      </label>
+      <label class="row switch">
+        <span><strong>Tabs playing audio</strong></span>
+        <input type="checkbox" id="exemptAudible" />
+      </label>
+      <label class="row switch">
+        <span><strong>The active tab</strong><small>The foreground tab in each window.</small></span>
+        <input type="checkbox" id="exemptActive" />
+      </label>
+      <label class="row switch">
+        <span><strong>Tabs with unsaved input</strong><small>Detected via a content script on each page.</small></span>
+        <input type="checkbox" id="exemptUnsavedInput" />
+      </label>
+
+      <footer>
+        <button id="save" type="button">Save settings</button>
+        <span id="status" role="status" aria-live="polite"></span>
+      </footer>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

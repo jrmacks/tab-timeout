@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Timeout — Idle Tab Closer",
+  "version": "1.0.0",
+  "description": "Auto-closes tabs left idle past a threshold (after a keep/close prompt) and archives them to a 'Recently Closed' bookmark folder with automatic cleanup.",
+  "minimum_chrome_version": "110",
+  "permissions": ["tabs", "alarms", "notifications", "bookmarks", "storage"],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "options_page": "src/options.html",
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "Tab Timeout",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
